@@ -69,7 +69,7 @@
 /**
  A Boolean value that determines whether the cell have a mark.
  */
-@property (nonatomic, getter = isMarked) BOOL marked;
+@property (nonatomic) NSNumber *marked;
 
 /**
  A Boolean value that determines whether all tasks for the cell's day are completed.

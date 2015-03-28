@@ -222,7 +222,7 @@
  
  @return YES if the date should be marked or NO if it should not.
  */
-- (BOOL)datePickerView:(RSDFDatePickerView *)view shouldMarkDate:(NSDate *)date;
+- (NSNumber *)datePickerView:(RSDFDatePickerView *)view shouldMarkDate:(NSDate *)date;
 
 /**
  Asks the data source if all tasks on the date are completed.

@@ -74,6 +74,7 @@
     [self addSubview:self.markImageView];
     [self addSubview:self.dividerImageView];
     [self addSubview:self.dateLabel];
+    self.marked = @(0);
     
     [self updateSubviews];
 }
@@ -452,6 +453,15 @@
         dividerImage = [self rectImageWithKey:dividerImageKey frame:self.dividerImageView.frame color:dividerImageColor];
     }
     return dividerImage;
+}
+
+#pragma mark: Marked Number
+-(BOOL)isMarked{
+    if ([self.marked integerValue] > 0) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

@@ -103,7 +103,17 @@
     CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
     CGContextFillEllipseInRect(context, frame);
     
-    CGContextSetStrokeColorWithColor(context, [UIColor greenColor].CGColor);  // ToDO: should be constant
+    UIColor *color;
+    
+    if ([self.marked integerValue] == 1) {
+        color = [UIColor redColor];
+    } else if([self.marked integerValue] == 2){
+        color = [UIColor blueColor];
+    } else {
+        color = [UIColor purpleColor];
+    }
+    
+    CGContextSetStrokeColorWithColor(context, color.CGColor);
     CGContextSetLineWidth(context, 2.0);
     CGContextStrokeEllipseInRect(context, CGRectInset(frame, 1, 1));
     

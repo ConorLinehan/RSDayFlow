@@ -120,7 +120,17 @@
             if ([date compare:today] == NSOrderedAscending) {
                 isCompletedAllTasks = YES;
             }
-            statesOfTasks[date] = @(isCompletedAllTasks);
+            // To test mark even indexes
+            // 1 will go to blue
+            // 2 will go to red
+            // So even not the best way to test multiple cells
+            if (idx % 3 == 0) {
+                statesOfTasks[date] = @(1);
+            } else if (idx % 3 == 1){
+                statesOfTasks[date] = @(2);
+            } else {
+                statesOfTasks[date] = @(3);
+            }
         }];
         
         _statesOfTasks = [statesOfTasks copy];
@@ -194,9 +204,9 @@
 
 #pragma mark - RSDFDatePickerViewDataSource
 
-- (BOOL)datePickerView:(RSDFDatePickerView *)view shouldMarkDate:(NSDate *)date
+- (NSNumber *)datePickerView:(RSDFDatePickerView *)view shouldMarkDate:(NSDate *)date
 {
-    return [self.datesToMark containsObject:date];
+    return self.statesOfTasks[date];
 }
 
 - (BOOL)datePickerView:(RSDFDatePickerView *)view isCompletedAllTasksOnDate:(NSDate *)date
