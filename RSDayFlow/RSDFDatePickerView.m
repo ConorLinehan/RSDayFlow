@@ -636,10 +636,9 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
         weekday = [self.calendar components:NSCalendarUnitWeekday fromDate:cellDate].weekday;
         cell.dayOff = (weekday == 1) || (weekday == 7);
         
+        // Hook here
         if ([self.dataSource respondsToSelector:@selector(datePickerView:shouldMarkDate:)]) {
-            cell.marked = [self.dataSource datePickerView:self shouldMarkDate:cellDate];
-            cell.completed = YES;
-            
+            cell.marked = [self.dataSource datePickerView:self shouldMarkDate:cellDate];            
         }
         
         cell.today = ([cellDate compare:_today] == NSOrderedSame) ? YES : NO;

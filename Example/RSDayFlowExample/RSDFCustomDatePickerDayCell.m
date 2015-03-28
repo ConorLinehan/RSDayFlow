@@ -94,7 +94,7 @@
 
 
 
--(UIImage *)customCompleteMarkImage{
+-(UIImage *)markedImageForState:(NSNumber *)state{
     CGRect frame = CGRectMake(0, 0, 35.0f, 35.0f);
     
     UIGraphicsBeginImageContextWithOptions(frame.size, NO, self.window.screen.scale);
@@ -103,11 +103,12 @@
     CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
     CGContextFillEllipseInRect(context, frame);
     
+    
     UIColor *color;
     
-    if ([self.marked integerValue] == 1) {
+    if ([state integerValue] == 1) {
         color = [UIColor redColor];
-    } else if([self.marked integerValue] == 2){
+    } else if([state integerValue] == 2){
         color = [UIColor blueColor];
     } else {
         color = [UIColor purpleColor];
@@ -122,5 +123,6 @@
     
     return image;
 }
+
 
 @end

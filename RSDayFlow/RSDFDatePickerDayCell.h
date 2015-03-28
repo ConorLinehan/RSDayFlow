@@ -67,14 +67,9 @@
 @property (nonatomic, getter = isToday) BOOL today;
 
 /**
- A Boolean value that determines whether the cell have a mark.
+ A Number value to flag marked image
  */
 @property (nonatomic) NSNumber *marked;
-
-/**
- A Boolean value that determines whether all tasks for the cell's day are completed.
- */
-@property (nonatomic, getter = isCompleted) BOOL completed;
 
 ///---------------------------------------
 /// @name Accessing Attributes of the View
@@ -244,5 +239,10 @@
  @discussion Can be overridden in subclasses for customization.
  */
 - (UIImage *)customDividerImage;
+
+/**
+ Image for marked State
+ */
+-(UIImage *)markedImageForState:(NSNumber *)state;
 
 @end

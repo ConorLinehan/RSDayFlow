@@ -205,11 +205,9 @@
             }
         }
         
-        if (!self.isCompleted) {
-            self.markImageView.image = [self incompleteMarkImage];
-        } else {
+        // Hook in custom days here
             self.markImageView.image = [self completeMarkImage];
-        }
+        // Dont know how though
     }
 }
 
@@ -425,6 +423,10 @@
 
 - (UIImage *)completeMarkImage
 {
+    if ([self.marked integerValue] > 0) {
+        return [self markedImageForState:self.marked];
+    }
+    
     UIImage *completeMarkImage = [self customCompleteMarkImage];
     if (!completeMarkImage) {
         UIColor *completeMarkImageColor = [self completeMarkImageColor];
@@ -454,6 +456,11 @@
     }
     return dividerImage;
 }
+
+-(UIImage *)markedImageForState:(NSNumber *)state{
+    return nil;
+}
+
 
 #pragma mark: Marked Number
 -(BOOL)isMarked{
