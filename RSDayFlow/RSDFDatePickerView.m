@@ -639,6 +639,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
         if ([self.dataSource respondsToSelector:@selector(datePickerView:shouldMarkDate:)]) {
             cell.marked = [self.dataSource datePickerView:self shouldMarkDate:cellDate];
             
+            // Hooked in here before should try again
             if (cell.marked && [self.dataSource respondsToSelector:@selector(datePickerView:isCompletedAllTasksOnDate:)]) {
                 cell.completed = [self.dataSource datePickerView:self isCompletedAllTasksOnDate:cellDate];
             }

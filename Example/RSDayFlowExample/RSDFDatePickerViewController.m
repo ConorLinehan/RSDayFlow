@@ -69,10 +69,11 @@
     NSDate *today = [self.calendar dateFromComponents:todayComponents];
     [self.datePickerView selectDate:today];
     
-    self.customDatePickerView.hidden = YES;
+    self.customDatePickerView.hidden = NO;
+    self.datePickerView.hidden = YES;
     
-    [self.view addSubview:self.customDatePickerView];
     [self.view addSubview:self.datePickerView];
+    [self.view addSubview:self.customDatePickerView];
 }
 
 #pragma mark - Custom Accessors

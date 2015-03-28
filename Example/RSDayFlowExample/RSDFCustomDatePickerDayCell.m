@@ -92,4 +92,25 @@
     return [UIColor clearColor];
 }
 
+
+
+-(UIImage *)customCompleteMarkImage{
+    CGRect frame = CGRectMake(0, 0, 35.0f, 35.0f);
+    
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, self.window.screen.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
+    CGContextFillEllipseInRect(context, frame);
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor greenColor].CGColor);  // ToDO: should be constant
+    CGContextSetLineWidth(context, 2.0);
+    CGContextStrokeEllipseInRect(context, CGRectInset(frame, 1, 1));
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 @end
